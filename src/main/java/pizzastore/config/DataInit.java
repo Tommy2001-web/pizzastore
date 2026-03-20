@@ -1,64 +1,107 @@
-package raccoltafilmspringmvc.config;
+package pizzastore.config;
 
-import it.prova.raccoltafilmspringmvc.model.Film;
-import it.prova.raccoltafilmspringmvc.model.Regista;
-import it.prova.raccoltafilmspringmvc.model.Sesso;
-import it.prova.raccoltafilmspringmvc.service.FilmService;
-import it.prova.raccoltafilmspringmvc.service.RegistaService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import pizzastore.model.Cliente;
+import pizzastore.model.Pizza;
+import pizzastore.model.Ordine;
+import pizzastore.service.ClienteService;
+import pizzastore.service.PizzaService;
+import pizzastore.service.OrdineService;
 
-import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.util.List;
 
 @Configuration
 public class DataInit {
+
     @Bean
-    CommandLineRunner initDatabase(FilmService filmService, RegistaService registaService) {
+    CommandLineRunner initDatabase(ClienteService clienteService,
+                                   PizzaService pizzaService,
+                                   OrdineService ordineService) {
+
         return args -> {
 
-            if (filmService.listAllElements().isEmpty()) {
-                // inserisci dati
+            if (clienteService.listAllElements().isEmpty()) {
 
-                // creo registi
-                SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+                // ===== CLIENTI =====
+                Cliente mario = new Cliente();
+                mario.setNome("Mario");
+                mario.setCognome("Rossi");
+                mario.setIndirizzo("Via Roma 1");
 
-                // ===== REGISTI =====
-                Regista tarantino = new Regista("Quentin", "Tarantino", "QT",
-                        sdf.parse("27/03/1963"), Sesso.MASCHIO);
+                Cliente luigi = new Cliente();
+                luigi.setNome("Luigi");
+                luigi.setCognome("Verdi");
+                luigi.setIndirizzo("Via Milano 10");
 
-                Regista nolan = new Regista("Christopher", "Nolan", "CN",
-                        sdf.parse("30/07/1970"), Sesso.MASCHIO);
+                Cliente anna = new Cliente();
+                anna.setNome("Anna");
+                anna.setCognome("Bianchi");
+                anna.setIndirizzo("Via Napoli 5");
 
-                Regista scorsese = new Regista("Martin", "Scorsese", "MS",
-                        sdf.parse("17/11/1942"), Sesso.MASCHIO);
+                clienteService.inserisciNuovo(mario);
+                clienteService.inserisciNuovo(luigi);
+                clienteService.inserisciNuovo(anna);
 
-                registaService.inserisciNuovo(tarantino);
-                registaService.inserisciNuovo(nolan);
-                registaService.inserisciNuovo(scorsese);
+                // ===== PIZZE =====
+                Pizza margherita = new Pizza();
+                margherita.setDescrizione("Margherita");
+                margherita.setIngredienti("Pomodoro, mozzarella, basilico");
+                margherita.setPrezzoBase(5.0);
 
-                // ===== FILM =====
-                Film pulpFiction = new Film("Pulp Fiction", "Crime",
-                        sdf.parse("14/10/1994"), 154, tarantino);
+                Pizza diavola = new Pizza();
+                diavola.setDescrizione("Diavola");
+                diavola.setIngredienti("Pomodoro, mozzarella, salame piccante");
+                diavola.setPrezzoBase(7.5);
 
-                Film django = new Film("Django Unchained", "Western",
-                        sdf.parse("25/12/2012"), 165, tarantino);
+                Pizza boscaiola = new Pizza();
+                boscaiola.setDescrizione("Boscaiola");
+                boscaiola.setIngredienti("Mozzarella, funghi, salsiccia");
+                boscaiola.setPrezzoBase(8.0);
 
-                Film inception = new Film("Inception", "Sci-Fi",
-                        sdf.parse("16/07/2010"), 148, nolan);
+                pizzaService.inserisciNuovo(margherita);
+                pizzaService.inserisciNuovo(diavola);
+                pizzaService.inserisciNuovo(boscaiola);
 
-                Film interstellar = new Film("Interstellar", "Sci-Fi",
-                        sdf.parse("07/11/2014"), 169, nolan);
+                // ===== ORDINI =====
+                Ordine ordine1 = new Ordine();
+                ordine1.setCliente(mario);
+                ordine1.setDataOrdine(LocalDateTime.now());
+                ordine1.setCodice("ORD001");
+                ordine1.setClosed(true);
+                ordine1.setPizze(List.of(margherita));
 
-                Film taxiDriver = new Film("Taxi Driver", "Drama",
-                        sdf.parse("08/02/1976"), 114, scorsese);
+                ordine1.setCostoTotale(
+                        ordineService.calcolaPrezzoOrdine(ordine1)
+                );
 
-                filmService.inserisciNuovo(pulpFiction);
-                filmService.inserisciNuovo(django);
-                filmService.inserisciNuovo(inception);
-                filmService.inserisciNuovo(interstellar);
-                filmService.inserisciNuovo(taxiDriver);
+                Ordine ordine2 = new Ordine();
+                ordine2.setCliente(luigi);
+                ordine2.setDataOrdine(LocalDateTime.now().minusDays(1));
+                ordine2.setCodice("ORD002");
+                ordine2.setClosed(false);
+                ordine2.setPizze(List.of(diavola));
 
+                ordine2.setCostoTotale(
+                        ordineService.calcolaPrezzoOrdine(ordine2)
+                );
+
+                Ordine ordine3 = new Ordine();
+                ordine3.setCliente(anna);
+                ordine3.setDataOrdine(LocalDateTime.now().minusDays(2));
+                ordine3.setCodice("ORD003");
+                ordine3.setClosed(true);
+                ordine3.setPizze(List.of(boscaiola));
+
+                ordine3.setCostoTotale(
+                        ordineService.calcolaPrezzoOrdine(ordine3)
+                );
+
+                ordineService.inserisciNuovo(ordine1);
+                ordineService.inserisciNuovo(ordine2);
+                ordineService.inserisciNuovo(ordine3);
             }
         };
     }

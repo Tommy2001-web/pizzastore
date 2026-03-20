@@ -8,7 +8,7 @@
 		<!-- Custom styles per le features di bootstrap 'Columns with icons' -->
 	   <link href="${pageContext.request.contextPath}/assets/css/features.css" rel="stylesheet">
 	   
-	   <title>Raccolta Film</title>
+	   <title>gestione pizzeria</title>
 	 </head>
 	   <body class="d-flex flex-column h-100">
 	   		
@@ -51,9 +51,9 @@
 			    
 			     <div class="p-5 mb-4 bg-light rounded-3">
 				      <div class="container-fluid py-5">
-				        <h1 class="display-5 fw-bold">Benvenuto alla Raccolta Film</h1>
-				        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. </p>
-				        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/regista/search">Vai a Ricerca</a>
+				        <h1 class="display-5 fw-bold">Benvenuto alla Gestione pizze</h1>
+				        <p class="col-md-8 fs-4">Dal 1950, solo <b>vera</b> pizza napoletana</p>
+				        <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/pizza/search">Vai a Ricerca Pizze</a>
 				      </div>
 			    </div>
 			    
@@ -66,10 +66,10 @@
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#collection"/></svg>
 			        </div>
-			        <h2>Ricerca Registi</h2>
-			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="${pageContext.request.contextPath}/regista/search" class="icon-link">
-			          Vai alla funzionalit�
+			        <h2>Ricerca Clienti</h2>
+			        <p>Visualizza la lista dei clienti</p>
+			        <a href="${pageContext.request.contextPath}/cliente/search" class="icon-link">
+			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
@@ -77,10 +77,10 @@
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
 			        </div>
-			        <h2>Inserisci Nuovo Regista</h2>
-			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="${pageContext.request.contextPath}/regista/insert" class="icon-link">
-			          Vai alla funzionalit�
+			        <h2>Inserisci Nuovo Cliente</h2>
+			        <p>Inserisci un nuovo cliente nella base dati</p>
+			        <a href="${pageContext.request.contextPath}/cliente/insert" class="icon-link">
+			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
@@ -88,10 +88,10 @@
 			        <div class="feature-icon bg-primary bg-gradient">
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
 			        </div>
-			        <h2>Ricerca Film</h2>
-			        <p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-			        <a href="${pageContext.request.contextPath}/film/search" class="icon-link">
-			          Vai alla funzionalit�
+			        <h2>Ricerca Pizza</h2>
+			        <p>Cerca una pizza specifica per vedere se è presente sul sito e disponibile</p>
+			        <a href="${pageContext.request.contextPath}/pizza/search" class="icon-link">
+			          Vai alla funzionalità
 			          <svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 			        </a>
 			      </div>
@@ -99,10 +99,43 @@
 						<div class="feature-icon bg-primary bg-gradient">
 							<svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
 						</div>
-						<h2>Inserisci Nuovo Film</h2>
-						<p>Paragraph of text beneath the heading to explain the heading. We'll add onto it with another sentence and probably just keep going until we run out of words.</p>
-						<a href="${pageContext.request.contextPath}/film/insert" class="icon-link">
-							Vai alla funzionalit�
+						<h2>Inserisci Nuova Pizza</h2>
+						<p>Inserisci una nuova pizza per aggiornare il catalogo delle pizze</p>
+						<a href="${pageContext.request.contextPath}/pizza/insert" class="icon-link">
+							Vai alla funzionalità
+							<svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+						</a>
+					</div>
+					<div class="feature col">
+						<div class="feature-icon bg-primary bg-gradient">
+							<svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"/></svg>
+						</div>
+						<h2>Ricerca Ordine</h2>
+						<p>Cerca un ordine sul sito</p>
+						<a href="${pageContext.request.contextPath}/ordine/search" class="icon-link">
+							Vai alla funzionalità
+							<svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+						</a>
+					</div>
+					<div class="feature col">
+						<div class="feature-icon bg-primary bg-gradient">
+							<svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+						</div>
+						<h2>Inserisci Nuovo Ordine</h2>
+						<p>Inserisci una nuovo ordine per aggiornare il catalogo degli ordini</p>
+						<a href="${pageContext.request.contextPath}/pizza/insert" class="icon-link">
+							Vai alla funzionalità
+							<svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
+						</a>
+					</div>
+					<div class="feature col">
+						<div class="feature-icon bg-primary bg-gradient">
+							<svg class="bi" width="1em" height="1em"><use xlink:href="#people-circle"/></svg>
+						</div>
+						<h2>Vedi tutti i clienti</h2>
+						<p>Consulta la lista dei clienti</p>
+						<a href="${pageContext.request.contextPath}/cliente/" class="icon-link">
+							Vai alla lista
 							<svg class="bi" width="1em" height="1em"><use xlink:href="#chevron-right"/></svg>
 						</a>
 					</div>

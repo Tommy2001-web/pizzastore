@@ -12,7 +12,7 @@
 	<groupId>it.prova</groupId>
 	<artifactId>raccoltafilmspringmvc</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>raccoltafilmspringmvc</name>
+	<name>pizzastore</name>
 	<description>Demo project for Spring Boot</description>
 	
 	<properties>
