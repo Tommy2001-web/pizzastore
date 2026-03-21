@@ -48,6 +48,7 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     public List<Cliente> findByExample(Cliente example) {
-        return List.of();
+
+        return clienteRepository.findByExample(example);
     }
 }

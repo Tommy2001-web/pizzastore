@@ -86,8 +86,8 @@
 <%--                        </spring:bind>--%>
 <%--                        <form:errors  path="attivo" cssClass="error_field" />--%>
 <%--                    </div>--%>
-                    <div class="col-12">
-                        <button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
+                    <div class="col-md-12 d-flex align-items-end justify-content-end">
+                        <button type="submit" name="submit" value="submit" id="submit" class="btn btn-outline-danger">Conferma</button>
                     </div>
                 </form:form>
 

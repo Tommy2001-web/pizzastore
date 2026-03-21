@@ -8,6 +8,7 @@ import pizzastore.model.Cliente;
 public interface ClienteRepository extends
         JpaRepository<Cliente, Long>,
         PagingAndSortingRepository<Cliente, Long>,
-        JpaSpecificationExecutor<Cliente> {
+        JpaSpecificationExecutor<Cliente>,
+        CustomClienteRepository {
 
 }

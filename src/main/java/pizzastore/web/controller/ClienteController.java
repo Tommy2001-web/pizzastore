@@ -5,11 +5,9 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import pizzastore.dto.ClienteDTO;
@@ -52,6 +50,20 @@ public class ClienteController {
 
         redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
         return "redirect:/cliente";
+    }
+
+    @GetMapping("/search")
+    public String searchCliente() {
+        return "cliente/search";
+    }
+
+    @PostMapping("/list")
+    public String listClienti(ClienteDTO clienteExample, ModelMap model) {
+
+        List<Cliente> clienti = clienteService.findByExample(clienteExample.buildClienteModel());
+
+        model.addAttribute("cliente_list_attribute", ClienteDTO.createClienteDTOListFromModelList(clienti));
+        return "cliente/list";
     }
 
 }
