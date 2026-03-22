@@ -32,7 +32,7 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     public void aggiorna(Cliente clienteInstance) {
-
+        clienteRepository.save(clienteInstance);
     }
 
     @Override
@@ -43,6 +43,9 @@ public class ClienteServiceImpl implements ClienteService{
 
     @Override
     public void disattiva(Long idCliente) {
+
+        clienteRepository.findById(idCliente).ifPresent
+                (clienteInstance -> clienteInstance.setAttivo(false));
 
     }
 

@@ -73,4 +73,24 @@ public class ClienteController {
         return "cliente/show";
     }
 
+    @GetMapping("/edit/{idCliente}")
+    public String editCliente(@PathVariable(required = true) Long idCliente, Model model) {
+        model.addAttribute("edit_cliente_attr",
+                ClienteDTO.buildClienteDTOFromModel(clienteService.caricaSingoloElemento(idCliente)));
+        return "cliente/edit";
+    }
+
+    @PostMapping("/update")
+    public String updateCliente(@Valid @ModelAttribute("edit_cliente_attr") ClienteDTO clienteDTO, BindingResult result,
+                                RedirectAttributes redirectAttrs, HttpServletRequest request) {
+
+        if (result.hasErrors()) {
+            return "cliente/edit";
+        }
+        clienteService.aggiorna(clienteDTO.buildClienteModel());
+
+        redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
+        return "redirect:/cliente";
+    }
+
 }
