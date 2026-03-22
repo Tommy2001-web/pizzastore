@@ -23,7 +23,7 @@ public class PizzaDTO {
     @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di 0")
     private Double prezzoBase;
 
-    private Boolean attivo;
+    private Boolean attivo = true;
 
     public PizzaDTO(Long id, String descrizione, String ingredienti, Double prezzoBase, Boolean attivo) {
         this.id = id;
@@ -78,7 +78,7 @@ public class PizzaDTO {
     }
 
     public Pizza buildPizzaModel() {
-        return new Pizza(this.id, this.descrizione, this.ingredienti, this.prezzoBase, this.attivo);
+        return new Pizza(this.id, this.descrizione, this.ingredienti, this.prezzoBase);
     }
 
     public static PizzaDTO buildPizzaDTOFromModel(Pizza pizzaModel) {

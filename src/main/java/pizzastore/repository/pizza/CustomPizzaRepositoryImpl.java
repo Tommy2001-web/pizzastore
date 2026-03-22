@@ -33,7 +33,7 @@ public class CustomPizzaRepositoryImpl implements CustomPizzaRepository{
             paramaterMap.put("ingredienti", "%" + example.getIngredienti() + "%");
         }
         if (example.getPrezzoBase() != null) {
-            whereClauses.add(" p.prezzoBase like :prezzoBase ");
+            whereClauses.add(" p.prezzoBase = :prezzoBase ");
             paramaterMap.put("prezzoBase", "%" + example.getPrezzoBase() + "%");
         }
 

@@ -5,12 +5,15 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+import pizzastore.dto.ClienteDTO;
 import pizzastore.dto.PizzaDTO;
 import pizzastore.dto.PizzaDTO;
+import pizzastore.model.Cliente;
 import pizzastore.model.Pizza;
 import pizzastore.service.PizzaService;
 
@@ -69,5 +72,29 @@ public class PizzaController {
 
         redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
         return "redirect:/pizza";
+    }
+
+    @GetMapping("/search")
+    public String searchPizza() {
+        return "pizza/search";
+    }
+
+    @PostMapping("/list")
+    public String listPizze(PizzaDTO pizzaExample, ModelMap model) {
+
+        System.out.println("Ricerca Pizza - descrizione: " + pizzaExample.getDescrizione());
+        System.out.println("ingredienti: " + pizzaExample.getIngredienti());
+        System.out.println("prezzoBase: " + pizzaExample.getPrezzoBase());
+        List<Pizza> pizze = pizzaService.findByExample(pizzaExample.buildPizzaModel());
+
+        model.addAttribute("pizza_list_attribute", PizzaDTO.createPizzaDTOListFromModelList(pizze));
+        return "pizza/list";
+    }
+
+    @GetMapping("/show/{idPizza}")
+    public String showCliente(@PathVariable(required = true) Long idPizza, Model model) {
+        model.addAttribute("show_pizza_attr",
+                PizzaDTO.buildPizzaDTOFromModel(pizzaService.caricaSingoloElemento(idPizza)));
+        return "pizza/show";
     }
 }

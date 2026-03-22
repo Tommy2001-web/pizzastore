@@ -24,28 +24,28 @@
             </div>
             <div class='card-body'>
 
-                <form method="post" action="${pageContext.request.contextPath}/cliente/list"
+                <form method="post" action="${pageContext.request.contextPath}/pizza/list"
                       class="row g-3">
 
                     <div class="col-md-4">
-                        <label for="nome" class="form-label">Nome</label>
-                        <input type="text" name="nome" id="nome" class="form-control" placeholder="Inserire il nome" >
+                        <label for="descrizione" class="form-label">Descrizione</label>
+                        <input type="text" name="descrizione" id="descrizione" class="form-control" placeholder="Inserire la descrizione" >
                     </div>
 
                     <div class="col-md-4">
-                        <label for="cognome" class="form-label">Cognome</label>
-                        <input type="text" name="cognome" id="cognome" class="form-control" placeholder="Inserire il cognome" >
+                        <label for="ingredienti" class="form-label">Ingredienti</label>
+                        <input type="text" name="ingredienti" id="ingredienti" class="form-control" placeholder="Inserire gli ingredienti" >
                     </div>
 
                     <div class="col-md-4">
-                        <label for="indirizzo" class="form-label">Indirizzo</label>
-                        <input type="text" name="indirizzo" id="indirizzo" class="form-control" placeholder="Inserire l'indirizzo" >
+                        <label for="prezzoBase" class="form-label">Prezzo</label>
+                        <input type="number" step="0.01" name="prezzoBase" id="prezzoBase" class="form-control" placeholder="Inserire il prezzo" >
                     </div>
 
                     <div class="col-12">
                         <button type="submit" name="submit" value="submit" id="submit" class="btn btn-primary">Conferma</button>
                         <input class="btn btn-warning" type="reset" value="Ripulisci">
-                        <a class="btn btn-outline-primary ml-2" href="${pageContext.request.contextPath }/cliente/insert">Add New</a>
+                        <a class="btn btn-outline-primary ml-2" href="${pageContext.request.contextPath }/pizza/insert">Add New</a>
                     </div>
 
                 </form>

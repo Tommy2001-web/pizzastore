@@ -1,8 +1,10 @@
 package pizzastore.model;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 import java.util.List;
 
@@ -40,6 +42,9 @@ public class Pizza {
 
     public Pizza() {
 
+    }
+
+    public Pizza(Long id, @NotBlank(message = "Il campo descrizione è obbligatorio") String descrizione, @NotBlank(message = "Il campo ingredienti è obbligatorio") String ingredienti, @NotNull(message = "Il prezzo è obbligatorio") @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di 0") Double prezzoBase) {
     }
 
     public Long getId() {
