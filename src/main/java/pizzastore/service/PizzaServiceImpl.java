@@ -37,8 +37,9 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public void inserisciNuovo(Pizza clienteInstance) {
-
+    public void inserisciNuovo(Pizza pizzaInstance) {
+        pizzaInstance.setAttivo(true);
+        pizzaRepository.save(pizzaInstance);
     }
 
     @Override

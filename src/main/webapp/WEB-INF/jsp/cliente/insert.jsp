@@ -87,7 +87,7 @@
 <%--                        <form:errors  path="attivo" cssClass="error_field" />--%>
 <%--                    </div>--%>
                     <div class="col-md-12 d-flex align-items-end justify-content-end">
-                        <button type="submit" name="submit" value="submit" id="submit" class="btn btn-outline-danger">Conferma</button>
+                        <button type="submit" name="submit" value="submit" id="submit" class="btn btn-outline-warning">Conferma</button>
                     </div>
                 </form:form>
 

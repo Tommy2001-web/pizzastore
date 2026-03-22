@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 public class PizzaDTO {
 
-    @NotBlank
+
     private Long id;
 
     private String descrizione;
@@ -17,6 +17,7 @@ public class PizzaDTO {
 
     @Min(value = 1L)
     private Double prezzoBase;
+
     private Boolean attivo;
 
     public PizzaDTO(Long id, String descrizione, String ingredienti, Double prezzoBase, Boolean attivo) {
@@ -25,6 +26,10 @@ public class PizzaDTO {
         this.ingredienti = ingredienti;
         this.prezzoBase = prezzoBase;
         this.attivo = attivo;
+    }
+
+    public PizzaDTO() {
+
     }
 
     public Long getId() {
@@ -59,7 +64,7 @@ public class PizzaDTO {
         this.prezzoBase = prezzoBase;
     }
 
-    public Boolean isAttivo() {
+    public Boolean getAttivo() {
         return attivo;
     }
 
