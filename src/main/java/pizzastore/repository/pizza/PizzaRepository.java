@@ -8,6 +8,7 @@ import pizzastore.model.Pizza;
 public interface PizzaRepository extends
         JpaRepository<Pizza, Long>,
         PagingAndSortingRepository<Pizza, Long>,
-        JpaSpecificationExecutor<Pizza> {
+        JpaSpecificationExecutor<Pizza>,
+        CustomPizzaRepository {
 
 }
