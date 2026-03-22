@@ -42,11 +42,10 @@ public class ClienteServiceImpl implements ClienteService{
     }
 
     @Override
-    public void disattiva(Long idCliente) {
-
-        clienteRepository.findById(idCliente).ifPresent
-                (clienteInstance -> clienteInstance.setAttivo(false));
-
+    public void toggleAttivo(Long idCliente) {
+        clienteRepository.findById(idCliente).ifPresent(clienteInstance ->
+                clienteInstance.setAttivo(!clienteInstance.isAttivo())
+        );
     }
 
     @Override

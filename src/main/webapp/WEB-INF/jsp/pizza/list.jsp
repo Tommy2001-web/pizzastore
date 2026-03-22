@@ -60,16 +60,7 @@
                                 <td>
                                     <a class="btn  btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/cliente/show/${clienteItem.id }">Visualizza</a>
                                     <a class="btn  btn-sm btn-outline-primary ml-2 mr-2" href="${pageContext.request.contextPath}/cliente/edit/${clienteItem.id }">Edit</a>
-                                    <a class="btn btn-sm  ${clienteItem.attivo ? 'btn-outline-danger' : 'btn-outline-success'}" href="${pageContext.request.contextPath}/cliente/delete/${clienteItem.id}">
-                                        <c:choose>
-                                            <c:when test="${clienteItem.attivo}">
-                                                Disattiva
-                                            </c:when>
-                                            <c:otherwise>
-                                                Attiva
-                                            </c:otherwise>
-                                        </c:choose>
-                                    </a>
+                                    <a class="btn btn-outline-danger btn-sm" href="laservletperrimuovere">Delete</a>
                                 </td>
                             </tr>
                         </c:forEach>

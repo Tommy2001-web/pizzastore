@@ -15,7 +15,7 @@ public interface ClienteService {
 
     public void inserisciNuovo(Cliente clienteInstance);
 
-    public void disattiva(Long idCliente);
+    void toggleAttivo(Long idCliente);
 
     public List<Cliente> findByExample(Cliente example);
 

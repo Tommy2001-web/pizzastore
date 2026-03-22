@@ -93,4 +93,23 @@ public class ClienteController {
         return "redirect:/cliente";
     }
 
+    @GetMapping("/delete/{idCliente}")
+    public String toggleCliente(@PathVariable Long idCliente,
+                                RedirectAttributes redirectAttrs) {
+
+        Cliente cliente = clienteService.caricaSingoloElemento(idCliente);
+
+        boolean eraAttivo = cliente.isAttivo();
+
+        clienteService.toggleAttivo(idCliente);
+
+        String messaggio = eraAttivo
+                ? "Cliente disattivato correttamente"
+                : "Cliente attivato correttamente";
+
+        redirectAttrs.addFlashAttribute("successMessage", messaggio);
+
+        return "redirect:/cliente";
+    }
+
 }
