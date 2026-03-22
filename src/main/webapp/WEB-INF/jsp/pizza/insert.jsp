@@ -53,24 +53,27 @@
                     <div class="col-md-6">
                         <label for="descrizione" class="form-label">Descrizione <span class="text-danger">*</span></label>
                         <spring:bind path="descrizione">
-                            <input type="text" name="descrizione" id="descrizione" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire il descrizione" value="${insert_pizza_attr.descrizione }">
+                            <input type="text" name="descrizione" id="descrizione" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire la descrizione" value="${insert_pizza_attr.descrizione }">
                         </spring:bind>
+                        <div class="error_field" id="descrizioneError"></div>
                         <form:errors  path="descrizione" cssClass="error_field" />
                     </div>
 
                     <div class="col-md-6">
                         <label for="ingredienti" class="form-label">Ingredienti <span class="text-danger">*</span></label>
                         <spring:bind path="ingredienti">
-                            <input type="text" name="ingredienti" id="ingredienti" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire il ingredienti" value="${insert_pizza_attr.ingredienti }">
+                            <input type="text" name="ingredienti" id="ingredienti" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire gli ingredienti" value="${insert_pizza_attr.ingredienti }">
                         </spring:bind>
+                        <div class="error_field" id="ingredientiError"></div>
                         <form:errors  path="ingredienti" cssClass="error_field" />
                     </div>
 
                     <div class="col-md-6">
                         <label for="prezzoBase" class="form-label">Prezzo Base <span class="text-danger">*</span></label>
                         <spring:bind path="prezzoBase">
-                            <input type="number" name="prezzoBase" id="prezzoBase" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire l'prezzoBase" value="${insert_pizza_attr.prezzoBase }">
+                            <input type="number" name="prezzoBase" id="prezzoBase" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire il prezzo" value="${insert_pizza_attr.prezzoBase }">
                         </spring:bind>
+                        <div class="error_field" id="prezzoBaseError"></div>
                         <form:errors  path="prezzoBase" cssClass="error_field" />
                     </div>
 
@@ -88,5 +91,62 @@
     <!-- end main -->
 </main>
 <jsp:include page="../footer.jsp" />
+<script>
+    document.querySelector("form").addEventListener("submit", function (event) {
+
+        let valid = true;
+
+        // campi
+        const descrizione = document.getElementById("descrizione");
+        const ingredienti = document.getElementById("ingredienti");
+        const prezzoBase = document.getElementById("prezzoBase");
+
+        // reset errori
+        resetField(descrizione, "descrizioneError");
+        resetField(ingredienti, "ingredientiError");
+        resetField(prezzoBase, "prezzoBaseError");
+
+        // VALIDAZIONE NOME
+        if (descrizione.value.trim() === "") {
+            setError(descrizione, "descrizioneError", "Il descrizione è obbligatorio");
+            valid = false;
+        }
+
+        // VALIDAZIONE COGNOME
+        if (ingredienti.value.trim() === "") {
+            setError(ingredienti, "ingredientiError", "Il ingredienti è obbligatorio");
+            valid = false;
+        }
+
+        // VALIDAZIONE INDIRIZZO
+        if (prezzoBase.value.trim() === "") {
+            setError(prezzoBase, "prezzoBaseError", "L'prezzoBase è obbligatorio");
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault(); // blocca submit
+        }
+    });
+
+    function setError(input, errorId, message) {
+        input.classList.add("is-invalid");
+        document.getElementById(errorId).innerText = message;
+    }
+
+    function resetField(input, errorId) {
+        input.classList.remove("is-invalid");
+        document.getElementById(errorId).innerText = "";
+    }
+
+    const descrizione = document.getElementById("descrizione");
+    const ingredienti = document.getElementById("ingredienti");
+    const prezzoBase = document.getElementById("prezzoBase");
+
+    // quando l'utente scrive → reset errore
+    descrizione.addEventListener("change", () => resetField(descrizione, "descrizioneError"));
+    ingredienti.addEventListener("change", () => resetField(ingredienti, "ingredientiError"));
+    prezzoBase.addEventListener("change", () => resetField(prezzoBase, "prezzoBaseError"));
+</script>
 </body>
 </html>

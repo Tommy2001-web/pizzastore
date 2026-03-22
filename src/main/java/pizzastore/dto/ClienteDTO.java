@@ -1,5 +1,6 @@
 package pizzastore.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import pizzastore.model.Cliente;
 
 import java.util.List;
@@ -8,9 +9,16 @@ import java.util.stream.Collectors;
 public class ClienteDTO {
 
     private Long id;
+
+    @NotBlank(message = "Il nome è obbligatorio")
     private String nome;
+
+    @NotBlank(message = "Il cognome è obbligatorio")
     private String cognome;
+
+    @NotBlank(message = "l'indirizzo è obbligatorio")
     private String indirizzo;
+
     private Boolean attivo;
 
     public ClienteDTO(Long id, String nome, String cognome, String indirizzo, Boolean attivo) {

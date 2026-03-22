@@ -27,7 +27,7 @@
     <div class="container">
 
         <%-- se l'attributo in request ha errori --%>
-        <spring:hasBindErrors  name="cliente_regista_attr">
+        <spring:hasBindErrors  name="insert_cliente_attr">
             <%-- alert errori --%>
             <div class="alert alert-danger " role="alert">
                 Attenzione!! Sono presenti errori di validazione
@@ -55,6 +55,7 @@
                         <spring:bind path="nome">
                             <input type="text" name="nome" id="nome" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire il nome" value="${insert_cliente_attr.nome }">
                         </spring:bind>
+                        <div class="error_field" id="nomeError"></div>
                         <form:errors  path="nome" cssClass="error_field" />
                     </div>
 
@@ -63,6 +64,7 @@
                         <spring:bind path="cognome">
                             <input type="text" name="cognome" id="cognome" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire il cognome" value="${insert_cliente_attr.cognome }">
                         </spring:bind>
+                        <div class="error_field" id="cognomeError"></div>
                         <form:errors  path="cognome" cssClass="error_field" />
                     </div>
 
@@ -71,6 +73,7 @@
                         <spring:bind path="indirizzo">
                             <input type="text" name="indirizzo" id="indirizzo" class="form-control ${status.error ? 'is-invalid' : ''}" placeholder="Inserire l'indirizzo" value="${insert_cliente_attr.indirizzo }">
                         </spring:bind>
+                        <div class="error_field" id="indirizzoError"></div>
                         <form:errors  path="indirizzo" cssClass="error_field" />
                     </div>
 
@@ -100,5 +103,62 @@
     <!-- end main -->
 </main>
 <jsp:include page="../footer.jsp" />
+<script>
+    document.querySelector("form").addEventListener("submit", function(event) {
+
+        let valid = true;
+
+        // campi
+        const nome = document.getElementById("nome");
+        const cognome = document.getElementById("cognome");
+        const indirizzo = document.getElementById("indirizzo");
+
+        // reset errori
+        resetField(nome, "nomeError");
+        resetField(cognome, "cognomeError");
+        resetField(indirizzo, "indirizzoError");
+
+        // VALIDAZIONE NOME
+        if (nome.value.trim() === "") {
+            setError(nome, "nomeError", "Il nome è obbligatorio");
+            valid = false;
+        }
+
+        // VALIDAZIONE COGNOME
+        if (cognome.value.trim() === "") {
+            setError(cognome, "cognomeError", "Il cognome è obbligatorio");
+            valid = false;
+        }
+
+        // VALIDAZIONE INDIRIZZO
+        if (indirizzo.value.trim() === "") {
+            setError(indirizzo, "indirizzoError", "L'indirizzo è obbligatorio");
+            valid = false;
+        }
+
+        if (!valid) {
+            event.preventDefault(); // blocca submit
+        }
+    });
+
+    function setError(input, errorId, message) {
+        input.classList.add("is-invalid");
+        document.getElementById(errorId).innerText = message;
+    }
+
+    function resetField(input, errorId) {
+        input.classList.remove("is-invalid");
+        document.getElementById(errorId).innerText = "";
+    }
+
+    const nome = document.getElementById("nome");
+    const cognome = document.getElementById("cognome");
+    const indirizzo = document.getElementById("indirizzo");
+
+    // quando l'utente scrive → reset errore
+    nome.addEventListener("change", () => resetField(nome, "nomeError"));
+    cognome.addEventListener("change", () => resetField(cognome, "cognomeError"));
+    indirizzo.addEventListener("change", () => resetField(indirizzo, "indirizzoError"));
+</script>
 </body>
 </html>

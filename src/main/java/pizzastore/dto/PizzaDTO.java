@@ -1,7 +1,8 @@
 package pizzastore.dto;
 
-import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import pizzastore.model.Pizza;
 
 import java.util.List;
@@ -12,10 +13,14 @@ public class PizzaDTO {
 
     private Long id;
 
+    @NotBlank(message = "Il campo descrizione è obbligatorio")
     private String descrizione;
+
+    @NotBlank(message = "Il campo ingredienti è obbligatorio")
     private String ingredienti;
 
-    @Min(value = 1L)
+    @NotNull(message = "Il prezzo è obbligatorio")
+    @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di 0")
     private Double prezzoBase;
 
     private Boolean attivo;
