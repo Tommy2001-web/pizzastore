@@ -66,4 +66,11 @@ public class ClienteController {
         return "cliente/list";
     }
 
+    @GetMapping("/show/{idCliente}")
+    public String showCliente(@PathVariable(required = true) Long idCliente, Model model) {
+        model.addAttribute("show_cliente_attr",
+                ClienteDTO.buildClienteDTOFromModel(clienteService.caricaSingoloElemento(idCliente)));
+        return "cliente/show";
+    }
+
 }
