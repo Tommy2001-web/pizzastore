@@ -205,7 +205,7 @@
                 </div>
                 <h2>Inserisci Nuovo Ordine</h2>
                 <p>Inserisci una nuovo ordine per aggiornare il catalogo degli ordini</p>
-                <a href="${pageContext.request.contextPath}/pizza/insert" class="icon-link">
+                <a href="${pageContext.request.contextPath}/ordine/insert" class="icon-link">
                     Vai alla funzionalità
                     <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
                         <use xlink:href="#chevron-right"/>
@@ -236,6 +236,21 @@
                 <h2>Vedi tutte le pizze</h2>
                 <p>Consulta la lista delle pizze</p>
                 <a href="${pageContext.request.contextPath}/pizza" class="icon-link">
+                    Vai alla lista
+                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                        <use xlink:href="#chevron-right"/>
+                    </svg>
+                </a>
+            </div>
+            <div class="feature col">
+                <div class="feature-icon rounded-circle bg-dark bg-gradient">
+                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                        <use xlink:href="#people-circle"/>
+                    </svg>
+                </div>
+                <h2>Vedi tutti gli ordini</h2>
+                <p>Consulta la lista degli ordini</p>
+                <a href="${pageContext.request.contextPath}/ordine" class="icon-link">
                     Vai alla lista
                     <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
                         <use xlink:href="#chevron-right"/>

@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pizzastore.model.Cliente;
 import pizzastore.model.Ordine;
+import pizzastore.model.Pizza;
 import pizzastore.repository.ordine.OrdineRepository;
 
 import java.util.List;
@@ -53,6 +54,14 @@ public class OrdineServiceImpl implements OrdineService {
 
     @Override
     public Double calcolaPrezzoOrdine(Ordine ordine) {
-        return 0.0;
+        if (ordine.getPizze() == null || ordine.getPizze().isEmpty()) {
+            return 0.0;
+        }
+
+        return ordine.getPizze()
+                .stream()
+                .map(Pizza::getPrezzoBase)
+                .filter(p -> p != null)
+                .reduce(0.0, Double::sum);
     }
 }

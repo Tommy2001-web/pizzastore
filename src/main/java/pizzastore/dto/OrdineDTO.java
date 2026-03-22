@@ -15,7 +15,7 @@ public class OrdineDTO {
 
     private Long id;
     private LocalDateTime dataOrdine;
-    private Boolean closed;
+    private Boolean closed = false;
 
     @NotBlank(message = "Il codice è obbligatorio")
     private String codice;
@@ -59,7 +59,7 @@ public class OrdineDTO {
         this.dataOrdine = dataOrdine;
     }
 
-    public Boolean isClosed() {
+    public Boolean getClosed() {
         return closed;
     }
 
