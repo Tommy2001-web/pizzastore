@@ -27,7 +27,7 @@
     <div class="container">
 
         <%-- se l'attributo in request ha errori --%>
-        <spring:hasBindErrors  name="pizza_regista_attr">
+        <spring:hasBindErrors  name="pizza_insert_attr">
             <%-- alert errori --%>
             <div class="alert alert-danger " role="alert">
                 Attenzione!! Sono presenti errori di validazione

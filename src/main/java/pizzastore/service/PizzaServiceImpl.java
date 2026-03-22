@@ -33,7 +33,7 @@ public class PizzaServiceImpl implements PizzaService {
 
     @Override
     public void aggiorna(Pizza pizzaInstance) {
-
+        pizzaRepository.save(pizzaInstance);
     }
 
     @Override

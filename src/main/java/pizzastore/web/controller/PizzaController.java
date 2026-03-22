@@ -6,13 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzastore.dto.ClienteDTO;
+import pizzastore.dto.PizzaDTO;
 import pizzastore.dto.PizzaDTO;
 import pizzastore.model.Pizza;
 import pizzastore.service.PizzaService;
@@ -50,6 +47,25 @@ public class PizzaController {
         }
         pizzaDTO.setAttivo(true);
         pizzaService.inserisciNuovo(pizzaDTO.buildPizzaModel());
+
+        redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
+        return "redirect:/pizza";
+    }
+    @GetMapping("/edit/{idPizza}")
+    public String editPizza(@PathVariable(required = true) Long idPizza, Model model) {
+        model.addAttribute("edit_pizza_attr",
+                PizzaDTO.buildPizzaDTOFromModel(pizzaService.caricaSingoloElemento(idPizza)));
+        return "pizza/edit";
+    }
+
+    @PostMapping("/update")
+    public String updatePizza(@Valid @ModelAttribute("edit_pizza_attr") PizzaDTO pizzaDTO, BindingResult result,
+                                RedirectAttributes redirectAttrs, HttpServletRequest request) {
+
+        if (result.hasErrors()) {
+            return "pizza/edit";
+        }
+        pizzaService.aggiorna(pizzaDTO.buildPizzaModel());
 
         redirectAttrs.addFlashAttribute("successMessage", "Operazione eseguita correttamente");
         return "redirect:/pizza";
