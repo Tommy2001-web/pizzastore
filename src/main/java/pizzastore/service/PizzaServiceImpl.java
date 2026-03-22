@@ -43,8 +43,10 @@ public class PizzaServiceImpl implements PizzaService {
     }
 
     @Override
-    public void rimuovi(Long idPizza) {
-
+    public void toggleAttivo(Long idPizza) {
+        pizzaRepository.findById(idPizza).ifPresent(pizzaInstance ->
+                pizzaInstance.setAttivo(!pizzaInstance.isAttivo())
+        );
     }
 
     @Override

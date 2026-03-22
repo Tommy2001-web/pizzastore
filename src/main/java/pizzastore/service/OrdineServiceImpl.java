@@ -32,27 +32,27 @@ public class OrdineServiceImpl implements OrdineService {
     }
 
     @Override
-    public void aggiorna(Ordine ordineInstance) {
-
-    }
-
-    @Override
     public void inserisciNuovo(Ordine ordineInstance) {
-
+        ordineRepository.save(ordineInstance);
     }
 
     @Override
-    public void disattiva(Long idOrdine) {
+    public void aggiorna(Ordine ordineInstance) {
+        ordineRepository.save(ordineInstance);
+    }
 
+    @Override
+    public void disattiva(Long id) {
+        ordineRepository.deleteById(id);
     }
 
     @Override
     public List<Ordine> findByExample(Ordine example) {
-        return List.of();
+        return ordineRepository.findByExample(example);
     }
 
     @Override
-    public double calcolaPrezzoOrdine(Ordine ordine) {
-        return 0;
+    public Double calcolaPrezzoOrdine(Ordine ordine) {
+        return 0.0;
     }
 }

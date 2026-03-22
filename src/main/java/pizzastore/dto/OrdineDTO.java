@@ -4,6 +4,9 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 
+import jakarta.validation.constraints.DecimalMin;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import pizzastore.model.Ordine;
 import pizzastore.model.Pizza;
 import pizzastore.model.Cliente;
@@ -13,7 +16,12 @@ public class OrdineDTO {
     private Long id;
     private LocalDateTime dataOrdine;
     private Boolean closed;
+
+    @NotBlank(message = "Il codice è obbligatorio")
     private String codice;
+
+    @NotNull(message = "Il prezzo è obbligatorio")
+    @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di 0")
     private Double costoTotale;
 
     private Long clienteId;

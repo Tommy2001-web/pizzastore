@@ -61,7 +61,16 @@
                                        href="${pageContext.request.contextPath}/pizza/show/${pizzaItem.id }">Visualizza</a>
                                     <a class="btn  btn-sm btn-outline-primary ml-2 mr-2"
                                        href="${pageContext.request.contextPath}/pizza/edit/${pizzaItem.id }">Edit</a>
-                                    <a class="btn btn-outline-danger btn-sm" href="laservletperrimuovere">Delete</a>
+                                    <a class="btn btn-outline-danger btn-sm" href="${pageContext.request.contextPath}/pizza/delete/${pizzaItem.id}">
+                                        <c:choose>
+                                            <c:when test="${pizzaItem.attivo}">
+                                                Disattiva
+                                            </c:when>
+                                            <c:otherwise>
+                                                Attiva
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </a>
                                 </td>
                             </tr>
                         </c:forEach>

@@ -15,7 +15,7 @@ public interface PizzaService {
 
     public void inserisciNuovo(Pizza pizzaInstance);
 
-    public void rimuovi(Long idPizza);
+    public void toggleAttivo(Long idPizza);
 
     public List<Pizza> findByExample(Pizza example);
 }

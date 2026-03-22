@@ -8,5 +8,6 @@ import pizzastore.model.Ordine;
 public interface OrdineRepository extends
         JpaRepository<Ordine, Long>,
         PagingAndSortingRepository<Ordine, Long>,
-        JpaSpecificationExecutor<Ordine> {
+        JpaSpecificationExecutor<Ordine>,
+        CustomOrdineRepository {
 }

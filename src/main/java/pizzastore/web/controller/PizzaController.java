@@ -10,10 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
-import pizzastore.dto.ClienteDTO;
 import pizzastore.dto.PizzaDTO;
-import pizzastore.dto.PizzaDTO;
-import pizzastore.model.Cliente;
 import pizzastore.model.Pizza;
 import pizzastore.service.PizzaService;
 
@@ -92,9 +89,28 @@ public class PizzaController {
     }
 
     @GetMapping("/show/{idPizza}")
-    public String showCliente(@PathVariable(required = true) Long idPizza, Model model) {
+    public String showPizza(@PathVariable(required = true) Long idPizza, Model model) {
         model.addAttribute("show_pizza_attr",
                 PizzaDTO.buildPizzaDTOFromModel(pizzaService.caricaSingoloElemento(idPizza)));
         return "pizza/show";
+    }
+
+    @GetMapping("/delete/{idPizza}")
+    public String togglePizza(@PathVariable Long idPizza,
+                                RedirectAttributes redirectAttrs) {
+
+        Pizza pizza = pizzaService.caricaSingoloElemento(idPizza);
+
+        boolean eraAttivo = pizza.isAttivo();
+
+        pizzaService.toggleAttivo(idPizza);
+
+        String messaggio = eraAttivo
+                ? "Pizza disattivata correttamente"
+                : "Pizza attivata correttamente";
+
+        redirectAttrs.addFlashAttribute("successMessage", messaggio);
+
+        return "redirect:/pizza";
     }
 }
