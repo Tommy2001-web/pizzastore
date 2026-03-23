@@ -34,6 +34,7 @@ public class OrdineServiceImpl implements OrdineService {
 
     @Override
     public void inserisciNuovo(Ordine ordineInstance) {
+        ordineInstance.setClosed(false);
         ordineRepository.save(ordineInstance);
     }
 

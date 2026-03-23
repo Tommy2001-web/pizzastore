@@ -66,7 +66,7 @@ public class ClienteDTO {
         this.indirizzo = indirizzo;
     }
 
-    public boolean isAttivo() {
+    public Boolean getAttivo() {
         return attivo;
     }
 

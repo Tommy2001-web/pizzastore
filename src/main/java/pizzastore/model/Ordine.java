@@ -57,7 +57,7 @@ public class Ordine {
         this.dataOrdine = dataOrdine;
     }
 
-    public boolean isClosed() {
+    public Boolean getClosed() {
         return closed;
     }
 

@@ -54,4 +54,9 @@ public class PizzaServiceImpl implements PizzaService {
 
         return pizzaRepository.findByExample(example);
     }
+
+    @Override
+    public List<Pizza> findAllById(List<Long> idPizze) {
+        return pizzaRepository.findAllById(idPizze);
+    }
 }

@@ -18,4 +18,6 @@ public interface PizzaService {
     public void toggleAttivo(Long idPizza);
 
     public List<Pizza> findByExample(Pizza example);
+
+    public List<Pizza> findAllById (List<Long> idPizze);
 }

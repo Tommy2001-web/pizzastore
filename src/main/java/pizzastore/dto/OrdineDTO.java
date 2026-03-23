@@ -137,7 +137,7 @@ public class OrdineDTO {
 
         dto.setId(ordineModel.getId());
         dto.setDataOrdine(ordineModel.getDataOrdine());
-        dto.setClosed(ordineModel.isClosed());
+        dto.setClosed(ordineModel.getClosed());
         dto.setCodice(ordineModel.getCodice());
         dto.setCostoTotale(ordineModel.getCostoTotale());
 
