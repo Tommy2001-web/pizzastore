@@ -58,10 +58,12 @@ public class OrdineServiceImpl implements OrdineService {
             return 0.0;
         }
 
-        return ordine.getPizze()
+        Double sommaTotale = ordine.getPizze()
                 .stream()
                 .map(Pizza::getPrezzoBase)
                 .filter(p -> p != null)
                 .reduce(0.0, Double::sum);
+        sommaTotale += ((sommaTotale/100)*15);
+        return sommaTotale;
     }
 }

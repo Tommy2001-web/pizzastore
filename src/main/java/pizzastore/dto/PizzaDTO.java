@@ -87,7 +87,7 @@ public class PizzaDTO {
                 pizzaModel.getDescrizione(),
                 pizzaModel.getIngredienti(),
                 pizzaModel.getPrezzoBase(),
-                pizzaModel.isAttivo()
+                pizzaModel.getAttivo()
         );
     }
 

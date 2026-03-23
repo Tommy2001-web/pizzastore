@@ -45,6 +45,7 @@
                             <th>Cliente</th>
                             <th>Pizze</th>
                             <th>Prezzo Totale</th>
+                            <th>Chiuso</th>
                             <th>Azioni</th>
                         </tr>
                         </thead>
@@ -54,11 +55,12 @@
                                 <td>${ordineItem.codice}</td>
                                 <td>${ordineItem.nomeCliente}</td>
                                 <td>
-                                    <c:forEach items="${ordineItem.pizzeDescrizione}" var="pizza" varStatus="st">
-                                        ${pizzeDescrizione}<c:if test="${!st.last}">, </c:if>
+                                    <c:forEach items="${ordineItem.pizzeDescrizione}" var="pizzaDescrizione" varStatus="st">
+                                        ${pizzaDescrizione}<c:if test="${!st.last}">, </c:if>
                                     </c:forEach>
                                 </td>
                                 <td>€ ${ordineItem.costoTotale}</td>
+                                <td>${ordineItem.closed == true ? 'Si' : 'No'}</td>
                                 <td>
                                     <a class="btn btn-sm btn-outline-primary" href="${pageContext.request.contextPath}/ordine/edit/${ordineItem.id}">Modifica</a>
                                     <a class="btn btn-sm btn-outline-danger" href="${pageContext.request.contextPath}/ordine/delete/${ordineItem.id}">Elimina</a>

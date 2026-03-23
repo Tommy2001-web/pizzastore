@@ -99,7 +99,7 @@ public class ClienteController {
 
         Cliente cliente = clienteService.caricaSingoloElemento(idCliente);
 
-        boolean eraAttivo = cliente.isAttivo();
+        boolean eraAttivo = cliente.getAttivo();
 
         clienteService.toggleAttivo(idCliente);
 

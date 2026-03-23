@@ -80,7 +80,7 @@ public class ClienteDTO {
 
     public static ClienteDTO buildClienteDTOFromModel(Cliente clienteModel) {
         ClienteDTO result = new ClienteDTO(clienteModel.getId(), clienteModel.getNome(), clienteModel.getCognome(),
-                clienteModel.getIndirizzo(), clienteModel.isAttivo());
+                clienteModel.getIndirizzo(), clienteModel.getAttivo());
 
         return result;
     }

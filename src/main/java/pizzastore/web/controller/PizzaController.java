@@ -101,7 +101,7 @@ public class PizzaController {
 
         Pizza pizza = pizzaService.caricaSingoloElemento(idPizza);
 
-        boolean eraAttivo = pizza.isAttivo();
+        boolean eraAttivo = pizza.getAttivo();
 
         pizzaService.toggleAttivo(idPizza);
 

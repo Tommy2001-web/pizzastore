@@ -45,7 +45,7 @@ public class PizzaServiceImpl implements PizzaService {
     @Override
     public void toggleAttivo(Long idPizza) {
         pizzaRepository.findById(idPizza).ifPresent(pizzaInstance ->
-                pizzaInstance.setAttivo(!pizzaInstance.isAttivo())
+                pizzaInstance.setAttivo(!pizzaInstance.getAttivo())
         );
     }
 

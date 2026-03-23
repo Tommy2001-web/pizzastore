@@ -3,6 +3,7 @@ package pizzastore.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import pizzastore.dto.ClienteDTO;
 import pizzastore.model.Cliente;
 import pizzastore.repository.cliente.ClienteRepository;
 
@@ -44,7 +45,7 @@ public class ClienteServiceImpl implements ClienteService{
     @Override
     public void toggleAttivo(Long idCliente) {
         clienteRepository.findById(idCliente).ifPresent(clienteInstance ->
-                clienteInstance.setAttivo(!clienteInstance.isAttivo())
+                clienteInstance.setAttivo(!clienteInstance.getAttivo())
         );
     }
 
@@ -53,4 +54,5 @@ public class ClienteServiceImpl implements ClienteService{
 
         return clienteRepository.findByExample(example);
     }
+
 }

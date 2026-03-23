@@ -1,5 +1,6 @@
 package pizzastore.service;
 
+import pizzastore.dto.ClienteDTO;
 import pizzastore.model.Cliente;
 
 import java.util.List;

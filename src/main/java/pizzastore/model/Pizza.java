@@ -79,7 +79,7 @@ public class Pizza {
         this.prezzoBase = prezzoBase;
     }
 
-    public Boolean isAttivo() {
+    public Boolean getAttivo() {
         return attivo;
     }
 

@@ -71,7 +71,7 @@ public class Cliente {
         this.indirizzo = indirizzo;
     }
 
-    public Boolean isAttivo() {
+    public Boolean getAttivo() {
         return attivo;
     }
 

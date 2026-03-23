@@ -62,9 +62,11 @@
                             <select class="form-select ${status.error ? 'is-invalid' : ''}" id="clienteId" name="clienteId">
                                 <option value="">- Selezionare -</option>
                                 <c:forEach items="${cliente_list}" var="c">
-                                    <option value="${c.id}" ${c.id == insert_ordine_attr.clienteId ? 'selected' : ''}>
-                                            ${c.nome}
-                                    </option>
+                                    <c:if test="${c.attivo}">
+                                        <option value="${c.id}" ${c.id == insert_ordine_attr.clienteId ? 'selected' : ''}>
+                                                ${c.nome}
+                                        </option>
+                                    </c:if>
                                 </c:forEach>
                             </select>
                         </spring:bind>
@@ -81,9 +83,14 @@
                                     <input class="form-check-input pizzaCheck" type="checkbox"
                                            id="pizza${p.id}" name="pizzaIds"
                                            value="${p.id}"
-                                           data-prezzo="${p.prezzoBase}">
+                                           data-prezzo="${p.prezzoBase}"
+                                        ${!p.attivo ? 'disabled' : ''}>
+
                                     <label class="form-check-label" for="pizza${p.id}">
                                             ${p.descrizione} (€${p.prezzoBase})
+                                        <c:if test="${!p.attivo}">
+                                            <span class="text-muted">(non disponibile)</span>
+                                        </c:if>
                                     </label>
                                 </div>
                             </c:forEach>
