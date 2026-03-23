@@ -64,7 +64,16 @@
                                 <td>
                                     <a class="btn  btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/ordine/show/${ordineItem.id }">Visualizza</a>
                                     <a class="btn btn-sm btn-outline-primary" href="${pageContext.request.contextPath}/ordine/edit/${ordineItem.id}">Modifica</a>
-                                    <a class="btn btn-sm btn-outline-danger" href="${pageContext.request.contextPath}/ordine/delete/${ordineItem.id}">Elimina</a>
+                                    <a class="btn btn-sm ${ordineItem.closed ? 'btn-outline-success' : 'btn-outline-danger'}" href="${pageContext.request.contextPath}/ordine/delete/${ordineItem.id}">
+                                        <c:choose>
+                                            <c:when test="${ordineItem.closed}">
+                                                Riapri
+                                            </c:when>
+                                            <c:otherwise>
+                                                Chiudi
+                                            </c:otherwise>
+                                        </c:choose>
+                                    </a>
                                 </td>
                             </tr>
                         </c:forEach>

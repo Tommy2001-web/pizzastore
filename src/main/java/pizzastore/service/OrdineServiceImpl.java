@@ -50,8 +50,10 @@ public class OrdineServiceImpl implements OrdineService {
     }
 
     @Override
-    public void disattiva(Long id) {
-        ordineRepository.deleteById(id);
+    public void toggleAttivo(Long idOrdine) {
+        ordineRepository.findById(idOrdine).ifPresent(ordineInstance ->
+                ordineInstance.setClosed(!ordineInstance.getClosed())
+        );
     }
 
     @Override

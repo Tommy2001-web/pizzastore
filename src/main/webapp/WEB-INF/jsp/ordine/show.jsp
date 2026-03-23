@@ -49,7 +49,7 @@
                 </dl>
 
                 <!-- Bottone per espandere dettagli -->
-                <button class="btn btn-outline-primary mb-3" type="button" data-bs-toggle="collapse"
+                <button class="btn btn-outline-info mb-3" type="button" data-bs-toggle="collapse"
                         data-bs-target="#dettagliOrdine" aria-expanded="false" aria-controls="dettagliOrdine">
                     Mostra dettagli
                 </button>

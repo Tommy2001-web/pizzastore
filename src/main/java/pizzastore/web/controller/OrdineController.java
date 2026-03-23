@@ -205,10 +205,22 @@ public class OrdineController {
         return "redirect:/ordine";
     }
 
-    @GetMapping("/delete/{id}")
-    public String deleteOrdine(@PathVariable Long id, RedirectAttributes redirectAttrs) {
-        ordineService.disattiva(id);
-        redirectAttrs.addFlashAttribute("successMessage", "Ordine eliminato correttamente");
+    @GetMapping("/delete/{idOrdine}")
+    public String toggleOrdine(@PathVariable Long idOrdine,
+                                RedirectAttributes redirectAttrs) {
+
+        Ordine ordine = ordineService.caricaSingoloElemento(idOrdine);
+
+        boolean eraChiuso = ordine.getClosed();
+
+        ordineService.toggleAttivo(idOrdine);
+
+        String messaggio = eraChiuso
+                ? "Ordine aperto correttamente"
+                : "Ordine chiuso correttamente";
+
+        redirectAttrs.addFlashAttribute("successMessage", messaggio);
+
         return "redirect:/ordine";
     }
 }

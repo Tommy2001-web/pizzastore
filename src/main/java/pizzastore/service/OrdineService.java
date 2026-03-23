@@ -15,7 +15,7 @@ public interface OrdineService {
 
     public void inserisciNuovo(Ordine ordineInstance);
 
-    public void disattiva(Long idOrdine);
+    public void toggleAttivo(Long idOrdine);
 
     public List<Ordine> findByExample(Ordine example);
 
