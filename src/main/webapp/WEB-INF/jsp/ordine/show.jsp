@@ -45,7 +45,7 @@
 
                 <dl class="row">
                     <dt class="col-sm-3 text-right">Costo Totale:</dt>
-                    <dd class="col-sm-9">€${show_ordine_attr.costoTotale}</dd>
+                    <dd class="col-sm-9">${show_ordine_attr.costoTotale} euro</dd>
                 </dl>
 
                 <!-- Bottone per espandere dettagli -->

@@ -1,7 +1,9 @@
 package pizzastore.service;
 
+import pizzastore.dto.StatsDTO;
 import pizzastore.model.Ordine;
 
+import java.time.LocalDate;
 import java.util.List;
 
 public interface OrdineService {
@@ -20,4 +22,6 @@ public interface OrdineService {
     public List<Ordine> findByExample(Ordine example);
 
     public Double calcolaPrezzoOrdine(Ordine ordine);
+
+    public StatsDTO calcolaStatistiche(LocalDate dataInizio, LocalDate dataFine);
 }

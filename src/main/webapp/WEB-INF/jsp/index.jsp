@@ -257,6 +257,21 @@
                     </svg>
                 </a>
             </div>
+            <div class="feature col">
+                <div class="feature-icon rounded-circle bg-dark bg-gradient">
+                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                        <use xlink:href="#people-circle"/>
+                    </svg>
+                </div>
+                <h2>Consulta statistiche</h2>
+                <p>Consulta la lista di alcune statistiche in un dato intervallo di date</p>
+                <a href="${pageContext.request.contextPath}/ordine/stats" class="icon-link">
+                    Vai alle statistiche
+                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                        <use xlink:href="#chevron-right"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
 

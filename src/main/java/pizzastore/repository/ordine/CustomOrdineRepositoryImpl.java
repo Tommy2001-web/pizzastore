@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import pizzastore.model.Ordine;
 import pizzastore.model.Pizza;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -76,6 +77,28 @@ public class CustomOrdineRepositoryImpl implements CustomOrdineRepository {
             queryBuilder.append(" group by o.id ");
             queryBuilder.append(" having count(distinct p.id) = :pizzaCount ");
             paramMap.put("pizzaCount", example.getPizze().size());
+        }
+
+        TypedQuery<Ordine> query = entityManager.createQuery(queryBuilder.toString(), Ordine.class);
+        paramMap.forEach(query::setParameter);
+
+        return query.getResultList();
+    }
+
+    @Override
+    public List<Ordine> findByDataOrdineBetween(LocalDateTime dataInizio, LocalDateTime dataFine) {
+
+        StringBuilder queryBuilder = new StringBuilder("select o from Ordine o where o.id = o.id ");
+        Map<String, Object> paramMap = new HashMap<>();
+
+        if (dataInizio != null) {
+            queryBuilder.append(" and o.dataOrdine >= :dataInizio ");
+            paramMap.put("dataInizio", dataInizio);
+        }
+
+        if (dataFine != null) {
+            queryBuilder.append(" and o.dataOrdine <= :dataFine ");
+            paramMap.put("dataFine", dataFine);
         }
 
         TypedQuery<Ordine> query = entityManager.createQuery(queryBuilder.toString(), Ordine.class);
