@@ -4,7 +4,6 @@ import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -110,6 +109,25 @@ public class OrdineController {
         model.addAttribute("ordine_list_attribute", ordiniDTO);
 
         return "ordine/list"; // JSP da mostrare
+    }
+
+    @GetMapping("/show/{idOrdine}")
+    public String showOrdine(@PathVariable Long idOrdine, Model model) {
+
+        // Carica ordine con pizze inizializzate
+        Ordine ordine = ordineService.caricaSingoloElementoEager(idOrdine);
+
+        if (ordine == null) {
+            // gestione ordine non trovato
+            model.addAttribute("errorMessage", "Ordine non trovato");
+            return "redirect:/ordine";
+        }
+
+        // Converte in DTO per la JSP
+        OrdineDTO ordineDTO = OrdineDTO.buildOrdineDTOFromModel(ordine);
+        model.addAttribute("show_ordine_attr", ordineDTO);
+
+        return "ordine/show";
     }
 
     @PostMapping("/save")

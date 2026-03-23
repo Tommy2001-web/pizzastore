@@ -62,6 +62,7 @@
                                 <td>€ ${ordineItem.costoTotale}</td>
                                 <td>${ordineItem.closed == true ? 'Si' : 'No'}</td>
                                 <td>
+                                    <a class="btn  btn-sm btn-outline-secondary" href="${pageContext.request.contextPath}/ordine/show/${ordineItem.id }">Visualizza</a>
                                     <a class="btn btn-sm btn-outline-primary" href="${pageContext.request.contextPath}/ordine/edit/${ordineItem.id}">Modifica</a>
                                     <a class="btn btn-sm btn-outline-danger" href="${pageContext.request.contextPath}/ordine/delete/${ordineItem.id}">Elimina</a>
                                 </td>

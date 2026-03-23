@@ -29,7 +29,13 @@ public class OrdineServiceImpl implements OrdineService {
 
     @Override
     public Ordine caricaSingoloElementoEager(Long id) {
-        return null;
+
+        Ordine ordine = ordineRepository.findById(id).orElse(null);
+        if (ordine != null) {
+            ordine.getPizze().size();
+        }
+        return ordine;
+
     }
 
     @Override
@@ -64,7 +70,7 @@ public class OrdineServiceImpl implements OrdineService {
                 .map(Pizza::getPrezzoBase)
                 .filter(p -> p != null)
                 .reduce(0.0, Double::sum);
-        sommaTotale += ((sommaTotale/100)*15);
+        sommaTotale += ((sommaTotale / 100) * 15);
         return sommaTotale;
     }
 }

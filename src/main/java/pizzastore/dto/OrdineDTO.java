@@ -1,6 +1,8 @@
 package pizzastore.dto;
 
 import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -53,6 +55,11 @@ public class OrdineDTO {
 
     public LocalDateTime getDataOrdine() {
         return dataOrdine;
+    }
+
+    public Date getDataOrdineDate() {
+        if (this.dataOrdine == null) return null;
+        return Date.from(this.dataOrdine.atZone(ZoneId.systemDefault()).toInstant());
     }
 
     public void setDataOrdine(LocalDateTime dataOrdine) {
