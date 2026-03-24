@@ -46,7 +46,7 @@
                     </div>
 
                     <div class="col-md-12">
-                        <label class="form-label">Pizze <span class="text-danger">*</span></label>
+                        <label class="form-label">Pizze </label>
                         <div id="pizzaCheckboxes">
                             <c:forEach items="${pizza_list}" var="p">
                                 <div class="form-check form-check-inline">

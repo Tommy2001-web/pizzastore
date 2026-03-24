@@ -123,8 +123,8 @@
     <div class="container px-4 py-5" id="featured-3">
         <div class="row g-4 py-5 row-cols-1 row-cols-lg-4">
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg class="bi bg-danger rounded-circle" width="1.2em" height="1.2em">
                         <use xlink:href="#collection"/>
                     </svg>
                 </div>
@@ -138,8 +138,8 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg class="bi bg-danger rounded-circle" width="1.2em" height="1.2em">
                         <use xlink:href="#people-circle"/>
                     </svg>
                 </div>
@@ -153,8 +153,8 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg class="bi bg-danger rounded-circle" width="1.2em" height="1.2em">
                         <use xlink:href="#toggles2"/>
                     </svg>
                 </div>
@@ -168,8 +168,8 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg class="bi bg-danger rounded-circle" width="1.2em" height="1.2em">
                         <use xlink:href="#people-circle"/>
                     </svg>
                 </div>
@@ -183,9 +183,9 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
-                        <use xlink:href="#toggles2"/>
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg class="bi bg-danger rounded-circle" width="1.2em" height="1.2em">
+                        <use xlink:href="#collection"/>
                     </svg>
                 </div>
                 <h2>Ricerca Ordine</h2>
@@ -198,9 +198,9 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
-                        <use xlink:href="#people-circle"/>
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" fill="currentColor" class="bi bi-fork-knife text-danger" viewBox="0 0 16 16">
+                        <path d="M13 .5c0-.276-.226-.506-.498-.465-1.703.257-2.94 2.012-3 8.462a.5.5 0 0 0 .498.5c.56.01 1 .13 1 1.003v5.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5zM4.25 0a.25.25 0 0 1 .25.25v5.122a.128.128 0 0 0 .256.006l.233-5.14A.25.25 0 0 1 5.24 0h.522a.25.25 0 0 1 .25.238l.233 5.14a.128.128 0 0 0 .256-.006V.25A.25.25 0 0 1 6.75 0h.29a.5.5 0 0 1 .498.458l.423 5.07a1.69 1.69 0 0 1-1.059 1.711l-.053.022a.92.92 0 0 0-.58.884L6.47 15a.971.971 0 1 1-1.942 0l.202-6.855a.92.92 0 0 0-.58-.884l-.053-.022a1.69 1.69 0 0 1-1.059-1.712L3.462.458A.5.5 0 0 1 3.96 0z"/>
                     </svg>
                 </div>
                 <h2>Inserisci Nuovo Ordine</h2>
@@ -213,8 +213,8 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg class="bi bg-danger rounded-circle" width="1.2em" height="1.2em">
                         <use xlink:href="#people-circle"/>
                     </svg>
                 </div>
@@ -228,9 +228,10 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
-                        <use xlink:href="#people-circle"/>
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" fill="currentColor" class="bi bi-egg-fried text-danger" viewBox="0 0 16 16">
+                        <path d="M8 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6"/>
+                        <path d="M13.997 5.17a5 5 0 0 0-8.101-4.09A5 5 0 0 0 1.28 9.342a5 5 0 0 0 8.336 5.109 3.5 3.5 0 0 0 5.201-4.065 3.001 3.001 0 0 0-.822-5.216zm-1-.034a1 1 0 0 0 .668.977 2.001 2.001 0 0 1 .547 3.478 1 1 0 0 0-.341 1.113 2.5 2.5 0 0 1-3.715 2.905 1 1 0 0 0-1.262.152 4 4 0 0 1-6.67-4.087 1 1 0 0 0-.2-1 4 4 0 0 1 3.693-6.61 1 1 0 0 0 .8-.2 4 4 0 0 1 6.48 3.273z"/>
                     </svg>
                 </div>
                 <h2>Vedi tutte le pizze</h2>
@@ -243,9 +244,12 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
-                        <use xlink:href="#people-circle"/>
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+<%--                    <svg class="bi bg-danger rounded-circle" width="1.2em" height="1.2em">--%>
+<%--                        <use xlink:href="#egg-fried"/>--%>
+<%--                    </svg>--%>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" fill="currentColor" class="bi bi-fork-knife text-danger" viewBox="0 0 16 16">
+                        <path d="M13 .5c0-.276-.226-.506-.498-.465-1.703.257-2.94 2.012-3 8.462a.5.5 0 0 0 .498.5c.56.01 1 .13 1 1.003v5.5a.5.5 0 0 0 .5.5h1a.5.5 0 0 0 .5-.5zM4.25 0a.25.25 0 0 1 .25.25v5.122a.128.128 0 0 0 .256.006l.233-5.14A.25.25 0 0 1 5.24 0h.522a.25.25 0 0 1 .25.238l.233 5.14a.128.128 0 0 0 .256-.006V.25A.25.25 0 0 1 6.75 0h.29a.5.5 0 0 1 .498.458l.423 5.07a1.69 1.69 0 0 1-1.059 1.711l-.053.022a.92.92 0 0 0-.58.884L6.47 15a.971.971 0 1 1-1.942 0l.202-6.855a.92.92 0 0 0-.58-.884l-.053-.022a1.69 1.69 0 0 1-1.059-1.712L3.462.458A.5.5 0 0 1 3.96 0z"/>
                     </svg>
                 </div>
                 <h2>Vedi tutti gli ordini</h2>
@@ -258,9 +262,9 @@
                 </a>
             </div>
             <div class="feature col">
-                <div class="feature-icon rounded-circle bg-dark bg-gradient">
-                    <svg class="bi bg-warning rounded-circle" width="1em" height="1em">
-                        <use xlink:href="#people-circle"/>
+                <div class="feature-icon rounded-circle bg-warning bg-gradient">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="1.2em" height="1.2em" fill="currentColor" class="bi bi-file-earmark-text-fill text-danger" viewBox="0 0 16 16">
+                        <path d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0M9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1M4.5 9a.5.5 0 0 1 0-1h7a.5.5 0 0 1 0 1zM4 10.5a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5m.5 2.5a.5.5 0 0 1 0-1h4a.5.5 0 0 1 0 1z"/>
                     </svg>
                 </div>
                 <h2>Consulta statistiche</h2>

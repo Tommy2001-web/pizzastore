@@ -25,13 +25,13 @@
                     <div class="col-md-4">
                         <label class="form-label">Data Inizio</label>
                         <input type="date" name="dataInizio" class="form-control">
-                        <small class="text-muted">Lascia vuoto per includere tutti i dati precedenti</small>
+                        <small class="text-muted">Lascia vuoto per includere tutti i dati precedenti alla data di fine</small>
                     </div>
 
                     <div class="col-md-4">
                         <label class="form-label">Data Fine</label>
                         <input type="date" name="dataFine" class="form-control">
-                        <small class="text-muted">Lascia vuoto per includere tutti i dati successivi</small>
+                        <small class="text-muted">Lascia vuoto per includere tutti i dati successivi alla data di inizio</small>
                     </div>
 
                     <div class="col-md-4 mt-4 d-flex align-items-end justify-content-end">
