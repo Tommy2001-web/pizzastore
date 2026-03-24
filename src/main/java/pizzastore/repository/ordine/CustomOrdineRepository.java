@@ -8,4 +8,5 @@ import java.util.List;
 public interface CustomOrdineRepository {
     List<Ordine> findByExample(Ordine example);
     List<Ordine> findByDataOrdineBetween(LocalDateTime start, LocalDateTime end);
+
 }

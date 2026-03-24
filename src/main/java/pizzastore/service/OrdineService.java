@@ -24,4 +24,6 @@ public interface OrdineService {
     public Double calcolaPrezzoOrdine(Ordine ordine);
 
     public StatsDTO calcolaStatistiche(LocalDate dataInizio, LocalDate dataFine);
+
+    public Double calcolaSconto(double totale, int numeroOrdini);
 }

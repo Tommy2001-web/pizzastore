@@ -21,8 +21,7 @@ public class OrdineDTO {
 
     @NotBlank(message = "Il codice è obbligatorio")
     private String codice;
-
-    @NotNull(message = "Il prezzo è obbligatorio")
+    
     @DecimalMin(value = "0.01", message = "Il prezzo deve essere maggiore di 0")
     private Double costoTotale;
 

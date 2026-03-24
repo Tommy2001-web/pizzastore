@@ -47,8 +47,9 @@ public class OrdineController {
     @GetMapping("/insert")
     public String createOrdine(Model model) {
         model.addAttribute("insert_ordine_attr", new OrdineDTO());
-        model.addAttribute("cliente_list", clienteService.listAllElements());
+        model.addAttribute("cliente_list", clienteService.caricaClienteConOrdini());
         model.addAttribute("pizza_list", pizzaService.listAllElements());
+
         return "ordine/insert";
     }
 
@@ -140,7 +141,7 @@ public class OrdineController {
                              Model model) {
 
         if (result.hasErrors()) {
-            model.addAttribute("cliente_list", clienteService.listAllElements());
+            model.addAttribute("cliente_list", clienteService.caricaClienteConOrdini());
             model.addAttribute("pizza_list", pizzaService.listAllElements());
             return "ordine/insert";
         }
@@ -151,17 +152,35 @@ public class OrdineController {
         if (ordineDTO.getPizzaIds() != null) {
             for (Long idPizza : ordineDTO.getPizzaIds()) {
                 Pizza pizza = pizzaService.caricaSingoloElemento(idPizza);
-                if (pizza != null) pizze.add(pizza);
+                if (pizza != null) {
+                    pizze.add(pizza);
+                }
             }
         }
 
         Ordine ordine = ordineDTO.buildOrdineModel(cliente, pizze);
 
-        ordine.setCostoTotale(ordineService.calcolaPrezzoOrdine(ordine));
+        int numeroOrdini = cliente.getOrdini() != null ? cliente.getOrdini().size() : 0;
+
+        Double totale = ordineService.calcolaPrezzoOrdine(ordine);
+
+        Double sconto = ordineService.calcolaSconto(totale, numeroOrdini);
+
+        ordine.setCostoTotale(totale - sconto);
 
         ordineService.inserisciNuovo(ordine);
 
-        redirectAttrs.addFlashAttribute("successMessage", "Ordine salvato correttamente");
+        if (numeroOrdini == 9) {
+            redirectAttrs.addFlashAttribute("successMessage",
+                    "Ordine salvato! Cliente diventato SILVER (sconto 10%)");
+        } else if (numeroOrdini == 19) {
+            redirectAttrs.addFlashAttribute("successMessage",
+                    "Ordine salvato! Cliente diventato GOLD (sconto 20%)");
+        } else {
+            redirectAttrs.addFlashAttribute("successMessage",
+                    "Ordine salvato correttamente");
+        }
+
         return "redirect:/ordine";
     }
 

@@ -106,4 +106,6 @@ public class CustomOrdineRepositoryImpl implements CustomOrdineRepository {
 
         return query.getResultList();
     }
+
+
 }

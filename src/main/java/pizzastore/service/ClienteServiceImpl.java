@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import pizzastore.dto.ClienteDTO;
+import pizzastore.dto.ClienteDTOConNumeroOrdini;
 import pizzastore.model.Cliente;
 import pizzastore.repository.cliente.ClienteRepository;
 
@@ -53,6 +54,23 @@ public class ClienteServiceImpl implements ClienteService{
     public List<Cliente> findByExample(Cliente example) {
 
         return clienteRepository.findByExample(example);
+    }
+
+    @Override
+    public List<ClienteDTOConNumeroOrdini> caricaClienteConOrdini() {
+        return clienteRepository.findClientiConNumeroOrdini();
+    }
+
+    public List<Cliente> clientiSilver() {
+        return clienteRepository.findAll().stream()
+                .filter(c -> c.getOrdini().size() >= 10)
+                .toList();
+    }
+
+    public List<Cliente> clientiGold() {
+        return clienteRepository.findAll().stream()
+                .filter(c -> c.getOrdini().size() >= 20)
+                .toList();
     }
 
 }

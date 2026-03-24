@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.persistence.TypedQuery;
 import org.apache.commons.lang3.StringUtils;
+import pizzastore.dto.ClienteDTOConNumeroOrdini;
 import pizzastore.model.Cliente;
 
 import java.util.ArrayList;
@@ -47,5 +48,6 @@ public class CustomClienteRepositoryImpl implements CustomClienteRepository {
 
         return typedQuery.getResultList();
     }
+
 }
 

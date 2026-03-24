@@ -9,6 +9,24 @@ public class StatsDTO {
     private Long numeroOrdini;
     private Long numeroPizze;
     private List<ClienteDTO> clientiVirtuosi;
+    private List<ClienteDTO> clientiSilver;
+    private List<ClienteDTO> clientiGold;
+
+    public List<ClienteDTO> getClientiSilver() {
+        return clientiSilver;
+    }
+
+    public void setClientiSilver(List<ClienteDTO> clientiSilver) {
+        this.clientiSilver = clientiSilver;
+    }
+
+    public List<ClienteDTO> getClientiGold() {
+        return clientiGold;
+    }
+
+    public void setClientiGold(List<ClienteDTO> clientiGold) {
+        this.clientiGold = clientiGold;
+    }
 
     public Double getRicaviTotali() {
         return ricaviTotali;
@@ -49,4 +67,5 @@ public class StatsDTO {
     public void setClientiVirtuosi(List<ClienteDTO> clientiVirtuosi) {
         this.clientiVirtuosi = clientiVirtuosi;
     }
+
 }

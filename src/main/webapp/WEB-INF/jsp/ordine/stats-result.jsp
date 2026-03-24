@@ -53,6 +53,47 @@
                     </c:if>
                     </tbody>
                 </table>
+                <h5 class="mt-4">Clienti Silver (10+ ordini)</h5>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${stats.clientiSilver}" var="c">
+                        <tr>
+                            <td>${c.id}</td>
+                            <td>${c.nome} ${c.cognome}</td>
+                        </tr>
+                    </c:forEach>
+                    <c:if test="${empty stats.clientiSilver}">
+                        <tr><td colspan="2" class="text-center">Nessun cliente Silver trovato</td></tr>
+                    </c:if>
+                    </tbody>
+                </table>
+
+                <h5 class="mt-4">Clienti Gold (20+ ordini)</h5>
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <c:forEach items="${stats.clientiGold}" var="c">
+                        <tr>
+                            <td>${c.id}</td>
+                            <td>${c.nome} ${c.cognome}</td>
+                        </tr>
+                    </c:forEach>
+                    <c:if test="${empty stats.clientiGold}">
+                        <tr><td colspan="2" class="text-center">Nessun cliente Gold trovato</td></tr>
+                    </c:if>
+                    </tbody>
+                </table>
 
             </div>
 
